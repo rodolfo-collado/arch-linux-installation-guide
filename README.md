@@ -6,6 +6,7 @@
 ![Guía en español](https://img.shields.io/badge/Gu%C3%ADa_en_espa%C3%B1ol-2ea44f?style=for-the-badge&logo=readme&logoColor=white)
 ![14 capítulos](https://img.shields.io/badge/14_cap%C3%ADtulos-8b5cf6?style=for-the-badge&logo=bookstack&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-0f172a?style=for-the-badge&logo=markdown&logoColor=white)
+[![Licencia: CC BY-SA 4.0](https://img.shields.io/badge/Licencia-CC_BY--SA_4.0-lightgrey?style=for-the-badge)](LICENSE.md)
 
 ### · overview ·
 
@@ -49,6 +50,14 @@ mkinitcpio/GPU → Usuario/sudo → rEFInd → Hyprland → Reinicio
 
 - [`docs/`](docs/): los 14 capítulos de la guía de instalación.
 - [`assets/`](assets/): imágenes utilizadas dentro de las notas.
+
+## Licencia
+
+La documentación original de esta guía está licenciada bajo [CC BY-SA 4.0](LICENSE.md). Puedes compartirla y adaptarla siempre que atribuyas al autor, indiques los cambios y mantengas la misma licencia en las versiones modificadas.
+
+Autor: [rodolfo-collado](https://github.com/rodolfo-collado)
+
+Las capturas, proyectos y referencias de terceros conservan sus respectivas licencias y créditos.
 
 ## Alcance
 
