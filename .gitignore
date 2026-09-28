@@ -1,0 +1,9 @@
+# Configuración local de Obsidian
+.obsidian/
+
+# Papelera de Obsidian
+.trash/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
