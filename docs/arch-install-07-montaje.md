@@ -86,13 +86,6 @@ Al descargar el kernel con el comando` pacstrap -K`, este se aloja por defecto e
 ```
 
 ---
-
-<div align="center">
-
-[← Anterior](arch-install-06-btrfs-subvolumenes.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-08-pacstrap.md)
-
-</div>
-
 ##### b). Esquema tradicional (montando el kernel en la partición EFI):
 
 ```bash
@@ -140,3 +133,9 @@ Al descargar el kernel con el comando` pacstrap -K`, este se aloja por defecto e
 ├── root/
 └── usr/
 ```
+
+<div align="center">
+
+[← Anterior](arch-install-06-btrfs-subvolumenes.md) · [Índice](../README.md) · [Siguiente →](arch-install-08-pacstrap.md)
+
+</div>
