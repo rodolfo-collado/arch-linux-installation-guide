@@ -1,4 +1,4 @@
-## 04. Verificar ruta de Instalación y creación de la tabla de particiones: 
+## 4. Verificar ruta de Instalación y creación de la tabla de particiones: 
 
 Usa el comando `fdisk` para que te muestre los discos que tienes instalados en el sistema y sus rutas:
 
@@ -19,7 +19,7 @@ Al entrar puede pedirte qué tipo de tabla de particiones quieres usar, como est
 - `[Write]`: Sirve para *guardar los cambios hechos en la tabla de particiones*. Escribe **yes** para confirmar. Esto borrará los datos de la partición que hayas seleccionado en caso de escoger una que tuviese información dentro.
 - `[Quit]`: Opción para **salir del programa de particionado**. Presionas acá luego de darle a write.  
 
-### 04.1. Particiones necesarias para la instalación de Arch en BTRFS: 
+### 4.1. Particiones necesarias para la instalación de Arch en BTRFS: 
 
 - `EFI`: El formato tiene que ser **vfat (fat32)**. Si tienes windows instalado en el disco es probable que tengas la partición al principio de la tabla de particiones con aproximadamente **~200MB** (dicho espacio es un poco insuficiente si deseas instalar otros sistemas operativos linux que guarden su kernel dentro de esta partición, aunque para tener solo Arch y Windows está dentro del mínimo funcional). 
 - `Linux root (x86-64)`: de formato **BTRFS**. Es la partición donde alojaremos la raíz del sistema operativo (y el kernel en caso de tener espacio insuficiente en la partición EFI). El espacio puede ser el de tu preferencia. **Recomiendo mayor a 80GB** para uso diario, si solo es de pruebas con 25GB-40GB es suficiente.
@@ -30,7 +30,7 @@ Al entrar puede pedirte qué tipo de tabla de particiones quieres usar, como est
 > 
 > Esto puede ser de utilidad, pero si siempre vas a estar apagando la computadora completamente tras cada sesión de uso, el swap se vuelve innecesario. Incluso es molesto para aquellas personas que poseen equipos con mucha RAM (esto porque **la swap tiene que ser exactamente del mismo tamaño que la RAM total del equipo** para asegurar que funcione correctamente bajo mucha carga de memoria). Además. Si necesitas swap obligatoriamente, no es necesario crear una partición separada, simplemente creas un archivo `Swapfile` dentro de la *Linux root* que cumple exactamente la misma función que la partición swap de un sistema.  **Esto es mejor porque mantiene simple el sistema de particiones**.
 
-#### 6.1.1. Ejemplo de una tabla de particiones de una VM:
+#### 4.1.1. Ejemplo de una tabla de particiones de una VM:
 
 En este caso, la tabla de particiones fue creada dentro de una  *Máquina Virtual*. El nombre con el que se indentifica el disco virtual de la VM se asigna como `vda` la mayoría de los casos. El nombre cambia en dependencia del tipo de unidad de almacenamiento que estamos usando (NVMe, SSD SATA, HDD, USB Drive, etc)
 

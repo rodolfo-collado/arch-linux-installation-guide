@@ -1,6 +1,6 @@
-## 09. Configuración Post Instalación del Sistema Operativo + Paquetes del usuario: 
+## 9. Configuración Post Instalación del Sistema Operativo + Paquetes del usuario: 
 
-### 09.1. Generar`fstab` (File System Table) y Hacer Cambio de Raíz: 
+### 9.1. Generar`fstab` (File System Table) y Hacer Cambio de Raíz: 
 
  El `fstab` funciona como el "Mapa de navegación de discos del sistema". **Le indica al kernel cuáles son las particiones, discos o unidades de almacenamiento que tiene que montar en el boot del sistema**. Para generarlo automáticamente con las particiones ya montadas del sistema
 
@@ -20,9 +20,9 @@ arch-chroot /mnt # al final se escribe la ruta en donde están montados los subv
 ```
 
 ---
-### 09.2. Configuración de localización, input y red dentro del `arch-chroot /mnt`:
+### 9.2. Configuración de localización, input y red dentro del `arch-chroot /mnt`:
 
-#### 09.2.1. Zona Horaria: 
+#### 9.2.1. Zona Horaria: 
 
 Listar las zonas horarias con el comando *timedatectl*:
 
@@ -59,7 +59,7 @@ hwclock --systohc
 > **Consejo para Dual Boot con windows:**
 > Si usas el comando `hwclock --systohc`, el sistema asume por defecto que la BIOS debe estar en **UTC**. Esto es perfecto para Linux, pero si Windows te muestra la hora mal al cambiar de sistema, recuerda que es porque Windows espera que la BIOS esté en "Local Time". Es mejor dejar la BIOS en UTC y configurar Windows después para que lo entienda en las opciones "Date & Local Time"
 
-### 09.3. Generación del archivo `/etc/locale.conf`: 
+### 9.3. Generación del archivo `/etc/locale.conf`: 
 
 En este archivo se configura desde la configuración y la distribución de teclado que quieras usar, hasta el calendario por defecto, uso de "," o "." para delimitar decimales, unidad de medida de temperatura predeterminada, etc. Nos vamos a centrar en lo importante que es la `codificación y la distribución de teclados`:
 
@@ -87,7 +87,7 @@ Creamos la variable `LANG=[CODIFICACIÓN DESCOMENTADA]` dentro del archivo gener
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ```
 
-### 09.4. Configuración del teclado en consola + Letra grande permanente:
+### 9.4. Configuración del teclado en consola + Letra grande permanente:
 
 Comandos con `echo`. También se puede editar de manera manual con editores de texto: 
 
@@ -95,7 +95,7 @@ Comandos con `echo`. También se puede editar de manera manual con editores de t
 echo -e "KEYMAP=us-acentos\nFONT=ter-132b" > /etc/vconsole.conf
 ```
 
-### 09.5. Crear Hostname (nombre de la máquina)
+### 9.5. Crear Hostname (nombre de la máquina)
 
 Puedes crearla añadiendo el nombre que desees al archivo `etc/hostname` con `echo` o manualmente con `nano`:
 

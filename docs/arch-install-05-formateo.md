@@ -1,4 +1,4 @@
-## 05. Formatear particiones: 
+## 5. Formatear particiones: 
 
 Con las particiones EFI y Root creadas, recuerda hacer un formato de las mismas en sus respectivos filesystem. Para identifiicar los nombres de las particiones (que no es lo mismo que las etiquetas que les asignamos en `cfdisk`) usamos este comando: 
 
@@ -8,7 +8,7 @@ lsblk -f
 
 Esto te muestra el árbol de particiones que tiene cada disco.  Identifica la partición EFI y la Root que creamos anteriormente y continua: 
 
-### 05.1. Partición EFI:
+### 5.1. Partición EFI:
 
 Si instalaste windows primero y tu objetivo es tener un *Sistema dualboot*, la partición EFI del disco donde se instaló windows se creó automaticamente. Si este es el caso entonces **NO FORMATEES** dicha partición o romperás el inicio de windows. 
 
@@ -20,7 +20,7 @@ mkfs.fat -F 32 /dev/nvme0n1p1
 
 *La ruta cambia en dependencia del nombre de partición que te haya dado* `lsblk -f`.
 
-### 05.2. Partición Root:
+### 5.2. Partición Root:
 
 El sistema de particiones que usaremos es BTRFS:
 

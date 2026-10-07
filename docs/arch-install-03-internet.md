@@ -1,8 +1,8 @@
-## 03. Conectarse a Internet
+## 3. Conectarse a Internet
 
 Hay varias maneras de conectarse a la red dentro de la TTY de Arch Linux. Las más comunes se enlistan a continuación: 
 
-### 03.1. Conexión Wireless (Inalámbrica): 
+### 3.1. Conexión Wireless (Inalámbrica): 
 
 Para ello, usamos el comando `iwctl` (iNet Wireless Control). Ejecuta este comando en la TTY de la live ISO: 
 
@@ -34,7 +34,7 @@ Nos conectamos a la red de preferencia con el siguiente comando (nos pedirá la 
 station wlan0 connect "NOMBRE_RED"
 ```
 
-### 03.2. Conexión Via Ethernet (Cableada):
+### 3.2. Conexión Via Ethernet (Cableada):
 
 Si tienes el cable conectado, Arch intenta levantar la red automáticamente mediante **dhcpcd**. para verificar si ya tienes internet, simplemente haz un ping: 
 
@@ -48,7 +48,7 @@ Si no responde, intenta forzar la solicitud de IP con el comando:
 systemctl start dhcpcd
 ```
 
-### 03.3. Conexión en máquina Virtual con NAT (Network Address Translation):
+### 3.3. Conexión en máquina Virtual con NAT (Network Address Translation):
 
 Para activar la conexión a wifi directamente dentro una VM con traducción de IP mediante NAT, tienes que seguir una configuración un tanto diferente usando el comando `dhcpcd`. Primero ejecuta este *comando para hacer una lista de todas las conexiones actuales*:
 
@@ -83,7 +83,7 @@ Para configurar la conexión a internet vamos a seleccionar la conexión 2. Para
 dhcpcd enp1s0
 ```
 
-### 03.4. Verificar la sincronización de la hora:
+### 3.4. Verificar la sincronización de la hora:
 
 Una vez conectado, asegúrate de que el reloj esté sincronizado para que no te den error las firmas de los paquetes: 
 

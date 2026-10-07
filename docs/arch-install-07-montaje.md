@@ -1,6 +1,6 @@
-## 07. Montar esquema de particiones (BTRFS):
+## 7. Montar esquema de particiones (BTRFS):
 
-### 07.1. Montaje de Subvolúmenes y partición EFI:
+### 7.1. Montaje de Subvolúmenes y partición EFI:
 
 Montar la raíz `@`:
 
@@ -33,7 +33,7 @@ mkdir -p /mnt/boot/efi
 mount /dev/nvme0n1p1 /mnt/boot/efi
 ```
 
-### 07.2. Claves de Diseño del Esquema de Particiones Aplicado: 
+### 7.2. Claves de Diseño del Esquema de Particiones Aplicado: 
 
 - `@ (/)`: Raiz del sistema. Ser un subvolumen BTRFS permite crear copias de seguridad (snapshots).
 - `@home (/home)`: Subvolumen para las carpetas de cada usuario. También permite la creación de snapshots. 
@@ -53,7 +53,7 @@ O bien:
 findmnt -nt btrfs # Salen los montajes de forma más explícita 
 ```
 
-### 07.3. Diferencias entre los Diferentes Esquemas de Particiones:
+### 7.3. Diferencias entre los Diferentes Esquemas de Particiones:
 
 Al descargar el kernel con el comando` pacstrap -K`, este se aloja por defecto en el directorio `/boot` dentro del sistema. Por lo que podemos jugar con eso y dejar ese directorio dentro de la raíz` /` y montar la partición EFI directamente en `/boot`. Esto es un sistema en el cual, el kernel vive dentro de la partición raíz en el árbol de directorios principal, mientras que la EFI se mantiene solo para bootloader. Tambien existen otras configuraciones como montar la EFI en un directorio único dentro de la raíz (por ejemplo, otro directorio en el mismo nivel que `/boot` llamado `/efi` ). 
 ####  07.3.1. Esquemas de particiones más comúnes: 

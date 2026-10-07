@@ -1,4 +1,4 @@
-## 02. Primer Booteo
+## 2. Primer Booteo
 
 La TTY (Teletypewritter) es la terminal con la que interactúas con el sistema operativo mediante comandos. Por defecto viene con la distribución de teclado `us` (US QWERTY) y un tamaño de fuente demasiado pequeño si tu monitor es muy grande o de alta resolución.
 
@@ -31,10 +31,6 @@ loadkeys us-acentos
 ```bash
 ls /usr/share/kbd/consolefonts/ | grep ter-v
 ```
-
-
-
-
 
 > [!NOTE]
 > **Nomenclatura de los tamaños de letra:**

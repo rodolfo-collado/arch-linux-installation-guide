@@ -1,6 +1,6 @@
-## 08. Instalación del Sistema Base:
+## 8. Instalación del Sistema Base:
 
-### 08.1. Activación del repositorio `multilib`:
+### 8.1. Activación del repositorio `multilib`:
 
 Para una instalación de paquetes completa mediante `pacstrap -K` primero se tiene que editar el  archivo en la ruta `/etc/pacman.conf`:
 
@@ -40,7 +40,7 @@ Guardar el archivo y ejecuta este comando en la terminal:
 pacman -Sy #Actualiza el gestor de paquetes para descargar Multilibs
 ```
 
-### 08.2. Comando pacstrap -K e instalación completa del sistema:
+### 8.2. Comando pacstrap -K e instalación completa del sistema:
 
 > [!IMPORTANT]
 > **Lo esencial que no puede faltar dentro del `pacstrap -K` es:**
@@ -64,7 +64,7 @@ pacman -Sy #Actualiza el gestor de paquetes para descargar Multilibs
 > - **Notas:** `obsidian`
 > - **Gamemodes y extras de juegos:** `gamemode lib32-gamemode steam hidapi steam-devices`
 
-#### 08.2.1. Pacstrap personalizado  (Thinkpad T14 gen 2 intel) + programas/binarios del usuario:
+#### 8.2.1. Pacstrap personalizado  (Thinkpad T14 gen 2 intel) + programas/binarios del usuario:
 
 ```bash
 pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers btrfs-progs pipewire pipewire-pulse pipewire-alsa pipewire-jack rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf kitty bluez bluez-utils networkmanager network-manager-applet git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark readest obsidian strawberry firefox gamemode lib32-gamemode steam hidapi steam-devices thunar yazi zathura zathura-pdf-mupdf imv mpv
