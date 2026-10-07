@@ -35,11 +35,10 @@ ls /usr/share/kbd/consolefonts/ | grep ter-v
 > [!NOTE]
 > **Nomenclatura de los tamaños de letra:**
 >
-Los nombres parecen código en clave, pero siguen esta lógica: **`ter-v[tamaño][estilo]`**
+>Siguen esta lógica: **`ter-v[tamaño][estilo]`**
 > - **v16, v24, v32:** Es la altura en píxeles.
 > - **n (normal):** Fuente estándar.
 > - **b (bold):** Fuente en negrita (más gruesa).
-> 
 
 - Aplica el tamaño de fuente de tu preferencia con `setfont`.
 
@@ -47,22 +46,32 @@ Los nombres parecen código en clave, pero siguen esta lógica: **`ter-v[tamaño
 setfont ter-v22b
 ```
 
-### 2.3 Verificación de Arranque (Legacy o UEFI):
+### 2.3 Verificar el modo de arranque de tu máquina (LEGACY o UEFI)
 
-El modo de arranque moderno y usado por todos los sistemas operativos actuales es **UEFI** (Unified Extensible Firmware Interface). Anteriormente se usaban arranques con el estándar *BIOS* (Basic Input/Output System), lo que actualmente conocemos como arranque **LEGACY**.  Esto es de crucial importancia para saber cómo vamos a particionar el disco (GPT para UEFI, MBR para Legacy). En esta guía se explicará el proceso de particionado bajo un arranque UEFI.
-
-### 2.4 Verificar el modo de arranque de tu máquina (Legacy o UEFI):
-
-Ejecuta este comando:
+- Verificar la existencia de las `efivars`.
 
 ```bash
 ls /sys/firmware/efi/efivars
 ```
 
-**Si existe** → estás en UEFI.
-**Si no existe** → Entraste a la iso en modo `legacy`. Para entrar en modo `UEFI` ve a la bios y selecciona la opción de arrancar desde la USB con `UEFI`
+- *Si existe* → estás en `UEFI`.
+- *Si no existe* → estás en `LEGACY`. Cambia las opciones de arranque del USB desde la BIOS a `UEFI`.
 
-Luego de ello, tendría que existir la ruta de variables `EFI`
+**Diferencias entre UEFI y LEGACY:**
+
+El modo de arranque determina principalmente el método de instalación del bootloader y, en la mayoría de los casos, el tipo de tabla de particiones que conviene utilizar.
+
+| Característica | `UEFI` | `LEGACY` |
+|---|---|---|
+| Estándar utilizado | `UEFI` (*Unified Extensible Firmware Interface*) | `BIOS` (*Basic Input/Output System*) |
+| Tabla de particiones habitual | `GPT` | `MBR` |
+| Partición de arranque | `EFI System Partition` en formato `FAT32` | Sector de arranque del disco |
+| Instalación del bootloader | Dentro de la partición EFI | En el sector de arranque |
+
+Para esta guía se utilizará la combinación moderna `UEFI + GPT`.
+
+> [!CAUTION]
+> No continuar hasta que la máquina esté en modo de arranque **UEFI**.
 
 ---
 
