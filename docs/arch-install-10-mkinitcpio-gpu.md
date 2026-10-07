@@ -63,6 +63,6 @@ mkinitcpio -P
 
 <div align="center">
 
-[← Anterior](arch-install-09-post-install.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-11-usuario-sudo.md)
+[← Anterior](arch-install-09-post-install.md) · [Índice](../README.md) · [Siguiente →](arch-install-11-usuario-sudo.md)
 
 </div>

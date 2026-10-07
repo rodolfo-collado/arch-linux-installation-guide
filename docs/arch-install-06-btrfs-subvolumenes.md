@@ -1,4 +1,4 @@
-## 06. Crear subvolúmenes (@, @home, @snapshots)
+## 6. Crear subvolúmenes (@, @home, @snapshots)
 
 Montamos temporalmente la partición:
 
@@ -35,6 +35,6 @@ Separación lógica sin particiones físicas. Esto porque más adelante montarem
 
 <div align="center">
 
-[← Anterior](arch-install-05-formateo.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-07-montaje.md)
+[← Anterior](arch-install-05-formateo.md) · [Índice](../README.md) · [Siguiente →](arch-install-07-montaje.md)
 
 </div>

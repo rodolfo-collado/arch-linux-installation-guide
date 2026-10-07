@@ -86,6 +86,6 @@ pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-
 
 <div align="center">
 
-[← Anterior](arch-install-07-montaje.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-09-post-install.md)
+[← Anterior](arch-install-07-montaje.md) · [Índice](../README.md) · [Siguiente →](arch-install-09-post-install.md)
 
 </div>

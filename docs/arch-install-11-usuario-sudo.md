@@ -83,6 +83,6 @@ systemctl enable NetworkManager
 
 <div align="center">
 
-[← Anterior](arch-install-10-mkinitcpio-gpu.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-12-refind.md)
+[← Anterior](arch-install-10-mkinitcpio-gpu.md) · [Índice](../README.md) · [Siguiente →](arch-install-12-refind.md)
 
 </div>

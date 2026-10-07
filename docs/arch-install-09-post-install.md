@@ -130,6 +130,6 @@ añadir la dirección local con el nombre de la máquina asignado anteriormente 
 
 <div align="center">
 
-[← Anterior](arch-install-08-pacstrap.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-10-mkinitcpio-gpu.md)
+[← Anterior](arch-install-08-pacstrap.md) · [Índice](../README.md) · [Siguiente →](arch-install-10-mkinitcpio-gpu.md)
 
 </div>

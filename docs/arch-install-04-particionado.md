@@ -40,6 +40,6 @@ En este caso, la tabla de particiones fue creada dentro de una  *Máquina Virtua
 
 <div align="center">
 
-[← Anterior](arch-install-03-internet.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-05-formateo.md)
+[← Anterior](arch-install-03-internet.md) · [Índice](../README.md) · [Siguiente →](arch-install-05-formateo.md)
 
 </div>

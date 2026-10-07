@@ -38,6 +38,6 @@ Los siguientes proyectos son configuraciones comunitarias utilizadas como ejempl
 
 <div align="center">
 
-[← Anterior](arch-install-12-refind.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-14-reboot.md)
+[← Anterior](arch-install-12-refind.md) · [Índice](../README.md) · [Siguiente →](arch-install-14-reboot.md)
 
 </div>

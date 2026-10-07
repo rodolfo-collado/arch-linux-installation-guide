@@ -43,6 +43,6 @@ mkfs.btrfs -f /dev/nvme0n1p3
 
 <div align="center">
 
-[← Anterior](arch-install-04-particionado.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-06-btrfs-subvolumenes.md)
+[← Anterior](arch-install-04-particionado.md) · [Índice](../README.md) · [Siguiente →](arch-install-06-btrfs-subvolumenes.md)
 
 </div>

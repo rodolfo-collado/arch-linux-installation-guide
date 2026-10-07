@@ -12,6 +12,6 @@ reboot
 
 <div align="center">
 
-[← Anterior](arch-install-13-hyprland.md) · [🏠 Volver al índice](../README.md)
+[← Anterior](arch-install-13-hyprland.md) · [Volver al índice](../README.md)
 
 </div>

@@ -65,6 +65,6 @@ Cambia la línea que dice `"Boot using default options"` y añade el `PARTUUID` 
 
 <div align="center">
 
-[← Anterior](arch-install-11-usuario-sudo.md) · [🏠 Índice](../README.md) · [Siguiente →](arch-install-13-hyprland.md)
+[← Anterior](arch-install-11-usuario-sudo.md) · [Índice](../README.md) · [Siguiente →](arch-install-13-hyprland.md)
 
 </div>
