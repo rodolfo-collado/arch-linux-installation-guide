@@ -1,38 +1,54 @@
-## 4. Verificar ruta de Instalación y creación de la tabla de particiones: 
+## 4. Verificar la ruta de instalación y crear la tabla de particiones
 
-Usa el comando `fdisk` para que te muestre los discos que tienes instalados en el sistema y sus rutas:
+- Lista los discos disponibles e identifica dónde instalarás Arch:
 
 ```bash
 fdisk -l
 ```
 
-Con el disco donde quieres instalar el sistema identificado, usa la herramienta cfdisk para entrar al disco. Como ejemplo entraré al disco *nvme0n1*:
+- Abre el disco con `cfdisk`. En este ejemplo se utiliza `/dev/nvme0n1`:
 
 ```bash
 cfdisk /dev/nvme0n1
 ```
 
-Al entrar puede pedirte qué tipo de tabla de particiones quieres usar, como estamos usando el *estándar UEFI* selecciona `GPT`. Luego entrarás a un menú interactivo que te muestra todas las particiones que posee tu disco. Los controles de abajo están explicados a continuación:
+> [!WARNING]
+> No modifiques las particiones de Windows desde `cfdisk`. Si necesitas reducir o mover una partición de Windows, hazlo desde Windows utilizando sus propias herramientas de administración de discos.
 
-- `[New]`:  Funciona para *crear una partición nueva a partir de espacio libre o otra partición*. Te pedirá escoger la cantidad de espacio que deseas asignarle a tu nueva partición (puedes escribir la cantidad en Megabytes o en Gigabytes). 
-- `[Type]`: Le *asigna un identificador a la partición seleccionada*. Esto es fundamental para indicarle al sistema qué tiene que hacer con esa partición y evitar problemas de permisos a futuro. Es importante que la partición EFI este marcada como `EFI System` y la del sistema principal como `Linux root (x86-64)`. 
-- `[Write]`: Sirve para *guardar los cambios hechos en la tabla de particiones*. Escribe **yes** para confirmar. Esto borrará los datos de la partición que hayas seleccionado en caso de escoger una que tuviese información dentro.
-- `[Quit]`: Opción para **salir del programa de particionado**. Presionas acá luego de darle a write.  
+- Selecciona `GPT` para una instalación con UEFI. Las opciones principales de `cfdisk` son:
 
-### 4.1. Particiones necesarias para la instalación de Arch en BTRFS: 
+| Opción     | Función                                                            | Uso en esta guía                                                                                 |
+| ---------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `[New]`    | Crea una partición en el espacio libre.                            | Crear EFI y Root.                                                                                |
+| `[Delete]` | Elimina la partición seleccionada y la convierte en espacio libre. | Solo usar si estás seguro de que no contiene datos necesarios.                                   |
+| `[Resize]` | Reduce o amplía la partición seleccionada.                         | Ajustar las particiones al tamaño preferido por el usuario. No usar para particiones de Windows. |
+| `[Type]`   | Asigna el tipo de partición.                                       | Asignarle `EFI System` para EFI y `Linux root (x86-64)` para Root.                               |
+| `[Help]`   | Muestra la ayuda de `cfdisk`.                                      | Consultar si necesitas más información.                                                          |
+| `[Write]`  | Guarda los cambios en el disco.                                    | Confirma escribiendo `yes`; puede borrar datos existentes.                                       |
+| `[Quit]`   | Sale de `cfdisk` sin guardar cambios pendientes.                   | Usar después de `[Write]`.                                                                       |
 
-- `EFI`: El formato tiene que ser **vfat (fat32)**. Si tienes windows instalado en el disco es probable que tengas la partición al principio de la tabla de particiones con aproximadamente **~200MB** (dicho espacio es un poco insuficiente si deseas instalar otros sistemas operativos linux que guarden su kernel dentro de esta partición, aunque para tener solo Arch y Windows está dentro del mínimo funcional). 
-- `Linux root (x86-64)`: de formato **BTRFS**. Es la partición donde alojaremos la raíz del sistema operativo (y el kernel en caso de tener espacio insuficiente en la partición EFI). El espacio puede ser el de tu preferencia. **Recomiendo mayor a 80GB** para uso diario, si solo es de pruebas con 25GB-40GB es suficiente.
+### 4.1. Particiones necesarias para Arch Linux con BTRFS
 
-> [!NOTE]
-> **Partición Linux Swap:**
-> Existe otra partición de tipo `Linux Swap` que sirve para alojar todos los procesos de la memoria RAM en esa partición cuando la computadora está hibernando. Así, al despertar la computadora, esos procesos se transfieren de nuevo a la RAM para dar la sensación de que "nunca se cerraron" tras hibernar el equipo. 
-> 
-> Esto puede ser de utilidad, pero si siempre vas a estar apagando la computadora completamente tras cada sesión de uso, el swap se vuelve innecesario. Incluso es molesto para aquellas personas que poseen equipos con mucha RAM (esto porque **la swap tiene que ser exactamente del mismo tamaño que la RAM total del equipo** para asegurar que funcione correctamente bajo mucha carga de memoria). Además. Si necesitas swap obligatoriamente, no es necesario crear una partición separada, simplemente creas un archivo `Swapfile` dentro de la *Linux root* que cumple exactamente la misma función que la partición swap de un sistema.  **Esto es mejor porque mantiene simple el sistema de particiones**.
+| Partición | Tipo en `cfdisk` | Formato | Tamaño orientativo | Uso |
+|---|---|---|---|---|
+| EFI | `EFI System` | `FAT32`/`vfat` | 512 MiB o más | Archivos de arranque. |
+| Root | `Linux root (x86-64)` | `BTRFS` | 25–40 GB para pruebas; más de 80 GB para uso diario | Sistema operativo, usuarios y datos. |
 
-#### 4.1.1. Ejemplo de una tabla de particiones de una VM:
+> [!CAUTION]
+> Puedes reutilizar la partición EFI de Windows, pero compartirla aumenta el riesgo de que una actualización o reparación de Windows modifique sus archivos de arranque. *Esto podría afectar el arranque de Arch y dejar inaccesibles archivos como el kernel o el cargador de arranque*. Haz una copia de seguridad antes de compartirla y, si es posible, utiliza una partición EFI independiente.
 
-En este caso, la tabla de particiones fue creada dentro de una  *Máquina Virtual*. El nombre con el que se indentifica el disco virtual de la VM se asigna como `vda` la mayoría de los casos. El nombre cambia en dependencia del tipo de unidad de almacenamiento que estamos usando (NVMe, SSD SATA, HDD, USB Drive, etc)
+- Es recomendable utilizar una partición `EFI` diferente para cada sistema operativo que instales a futuro.
+### 4.2. ¿Es necesaria una partición Swap?
+
+| Situación                                                    | Recomendación                                                           |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| No necesitas hibernación                                     | Puedes omitir la partición Swap.                                        |
+| Necesitas hibernación                                        | Usa una partición o archivo Swap con un tamaño aproximado al de la RAM. |
+| Necesitas Swap, pero quieres mantener simple el particionado | Crea un `Swapfile` dentro de la partición root más adelante.            |
+
+#### 4.2.1. Ejemplo de una tabla de particiones en una VM
+
+- En una máquina virtual, el disco suele aparecer como `/dev/vda`. En hardware físico puede aparecer como `/dev/nvme0n1`, `/dev/sda` u otro nombre. Ejemplo:
 
 ![Ejemplo de una tabla de particiones de una máquina virtual](../assets/arch-install-partitioning-screenshot-001.png)
 
