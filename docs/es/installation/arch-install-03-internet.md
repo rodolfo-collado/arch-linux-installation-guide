@@ -158,6 +158,6 @@ timedatectl status
 
 <div align="center">
 
-[← Anterior](arch-install-02-live-iso.md) · [Índice](README.md) · [Siguiente →](arch-install-04-particionado.md)
+[← Anterior](arch-install-02-live-iso.md) · [Índice](../../../README.md) · [Siguiente →](arch-install-04-particionado.md)
 
 </div>

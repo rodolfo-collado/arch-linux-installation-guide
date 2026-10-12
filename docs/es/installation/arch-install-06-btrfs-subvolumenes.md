@@ -20,6 +20,7 @@ btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 ```
 
+
 > [!IMPORTANT]
 > **Aclaración del subolumen @Snapshots:**
 >En este subvolumen se van a guardar todas las "fotos" del subvolumen de la raíz (`@`), esto en caso de que el sistema falle y puedas volver a un estado anterior donde todo estaba bien. El proceso de configuración de Snapshots (concretamente, con la herramienta **Snapper**) están explicadas en **Configuración de Snapshots BTRFS con Snapper**.
