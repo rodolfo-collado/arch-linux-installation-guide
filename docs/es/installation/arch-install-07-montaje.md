@@ -136,6 +136,6 @@ Al descargar el kernel con el comando` pacstrap -K`, este se aloja por defecto e
 
 <div align="center">
 
-[← Anterior](arch-install-06-btrfs-subvolumenes.md) · [Índice](../README.md) · [Siguiente →](arch-install-08-pacstrap.md)
+[← Anterior](arch-install-06-btrfs-subvolumenes.md) · [Índice](README.md) · [Siguiente →](arch-install-08-pacstrap.md)
 
 </div>

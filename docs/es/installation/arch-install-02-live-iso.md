@@ -77,6 +77,6 @@ Para esta guía se utilizará la combinación moderna `UEFI + GPT`.
 
 <div align="center">
 
-[← Anterior](arch-install-01-overview.md) · [Índice](../README.md) · [Siguiente →](arch-install-03-internet.md)
+[← Anterior](arch-install-01-overview.md) · [Índice](README.md) · [Siguiente →](arch-install-03-internet.md)
 
 </div>

@@ -15,6 +15,6 @@
 
 <div align="center">
 
-[← Índice](../README.md) · [Siguiente →](arch-install-02-live-iso.md)
+[← Índice](README.md) · [Siguiente →](arch-install-02-live-iso.md)
 
 </div>

@@ -1,12 +1,18 @@
 ## 6. Crear subvolúmenes (@, @home, @snapshots)
 
-Montamos temporalmente la partición:
+Un subvolumen BTRFS es una raíz lógica dentro del sistema de archivos que se comporta de manera similar a una carpeta con la capacidad de montarse y gestionarse por separado. En esta instalación crearemos 3 subvolúmenes principales: 
+
+1. `@`: Para archivos del sistema y paquetes instalados.
+2. `@home`: Para archivos y configuraciones de los usuarios .
+3. `@snapshots`: Alberga copias de seguridad de el subvolumen raíz.
+
+- Para crear estos 3 subvolúmenes, montamos temporalmente la partición `Root` del sistema en el directorio `/mnt`:
 
 ```bash
-mount /dev/nvme0n1p3 /mnt
+mount /dev/nvme0n1p2 /mnt
 ```
 
-Creamos subvolúmenes (la raíz y el home donde se alojarán todos los usuarios):
+Creamos los subvolúmenes:
 
 ```bash
 btrfs subvolume create /mnt/@
@@ -35,6 +41,6 @@ Separación lógica sin particiones físicas. Esto porque más adelante montarem
 
 <div align="center">
 
-[← Anterior](arch-install-05-formateo.md) · [Índice](../README.md) · [Siguiente →](arch-install-07-montaje.md)
+[← Anterior](arch-install-05-formateo.md) · [Índice](README.md) · [Siguiente →](arch-install-07-montaje.md)
 
 </div>

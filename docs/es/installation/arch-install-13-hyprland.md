@@ -12,17 +12,17 @@ Hyprland es de filosofía minimalista, lo que significa que solo te brinda lo b�
 
 #### 13.1.1. [Caelestia Shell](https://github.com/caelestia-dots/caelestia)
 
-![Captura de Caelestia Shell](../assets/arch-install-hyprland-screenshot-002.png)
+![Captura de Caelestia Shell](arch-install-hyprland-screenshot-002.png)
 
 
 #### 13.1.2. [Illogical Impulse](https://ii.clsty.link/en/) 
 
-![Captura de Illogical Impulse](../assets/arch-install-hyprland-screenshot-001.png)
+![Captura de Illogical Impulse](arch-install-hyprland-screenshot-001.png)
 
 
 #### 13.1.3. [HyDE](https://github.com/HyDE-Project)
 
-![Captura de HyDE](../assets/arch-install-hyprland-screenshot-003.png)
+![Captura de HyDE](arch-install-hyprland-screenshot-003.png)
 
 ---
 
@@ -38,6 +38,6 @@ Los siguientes proyectos son configuraciones comunitarias utilizadas como ejempl
 
 <div align="center">
 
-[← Anterior](arch-install-12-refind.md) · [Índice](../README.md) · [Siguiente →](arch-install-14-reboot.md)
+[← Anterior](arch-install-12-refind.md) · [Índice](README.md) · [Siguiente →](arch-install-14-reboot.md)
 
 </div>

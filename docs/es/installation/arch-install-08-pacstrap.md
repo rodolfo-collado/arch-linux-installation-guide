@@ -70,6 +70,10 @@ pacman -Sy #Actualiza el gestor de paquetes para descargar Multilibs
 pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers btrfs-progs pipewire pipewire-pulse pipewire-alsa pipewire-jack rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf kitty bluez bluez-utils networkmanager network-manager-applet git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark readest obsidian strawberry firefox gamemode lib32-gamemode steam hidapi steam-devices thunar yazi zathura zathura-pdf-mupdf imv mpv
 ```
 
+```bash
+pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers btrfs-progs pipewire pipewire-pulse pipewire-alsa pipewire-jack rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf kitty bluez bluez-utils networkmanager network-manager-applet git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark readest obsidian strawberry firefox yazi zathura zathura-pdf-mupdf imv mpv
+```
+
 > [!NOTE]
 > **¿Qué instala este comando?**
 >- Sistema base y kernel.
@@ -86,6 +90,6 @@ pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-
 
 <div align="center">
 
-[← Anterior](arch-install-07-montaje.md) · [Índice](../README.md) · [Siguiente →](arch-install-09-post-install.md)
+[← Anterior](arch-install-07-montaje.md) · [Índice](README.md) · [Siguiente →](arch-install-09-post-install.md)
 
 </div>
