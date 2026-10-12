@@ -19,22 +19,22 @@ Guía base para instalar Arch Linux sobre BTRFS, configurar el sistema y dejar l
 
 ## Índice
 
-|  #  | Capítulo                                                    | Descripción                                |
-| :-: | ----------------------------------------------------------- | ------------------------------------------ |
-| 01  | [Preparativos](arch-install-01-overview.md)                 | Requisitos y recomendaciones iniciales     |
-| 02  | [Primer booteo](arch-install-02-live-iso.md)                | Arranque desde la Live ISO                 |
-| 03  | [Conexión a Internet](arch-install-03-internet.md)          | Wireless, Ethernet, NAT y hora             |
-| 04  | [Particionado](arch-install-04-particionado.md)             | Tabla de particiones para BTRFS            |
-| 05  | [Formateo](arch-install-05-formateo.md)                     | Formateo de EFI y raíz                     |
-| 06  | [Subvolúmenes BTRFS](arch-install-06-btrfs-subvolumenes.md) | Creación de `@`, `@home` y `@snapshots`    |
-| 07  | [Montaje](arch-install-07-montaje.md)                       | Montaje del esquema de particiones         |
-| 08  | [Sistema base](arch-install-08-pacstrap.md)                 | `pacstrap`, repositorios y paquetes        |
-| 09  | [Post-instalación](arch-install-09-post-install.md)         | `fstab`, `arch-chroot`, localización y red |
-| 10  | [mkinitcpio y GPU](arch-install-10-mkinitcpio-gpu.md)       | Configuración según el hardware            |
-| 11  | [Usuario y sudo](arch-install-11-usuario-sudo.md)           | Usuario, grupos y permisos                 |
-| 12  | [rEFInd](arch-install-12-refind.md)                         | Instalación y configuración del bootloader |
-| 13  | [Hyprland](arch-install-13-hyprland.md)                     | Instalación del entorno gráfico            |
-| 14  | [Reinicio](arch-install-14-reboot.md)                       | Salida, desmontaje y primer arranque       |
+|  #  | Capítulo                                                   | Descripción                                |
+| :-: | ---------------------------------------------------------- | ------------------------------------------ |
+| 01  | [[arch-install-01-overview\|Preparativos]]                 | Requisitos y recomendaciones iniciales     |
+| 02  | [[arch-install-02-live-iso\|Primer Booteo]]                | Arranque desde la Live ISO                 |
+| 03  | [[arch-install-03-internet\|Conexión a Internet]]          | Wireless, Ethernet, NAT y hora             |
+| 04  | [[arch-install-04-particionado\|Particionado]]             | Tabla de particiones para BTRFS            |
+| 05  | [[arch-install-05-formateo\|Formateo]]                     | Formateo de EFI y raíz                     |
+| 06  | [[arch-install-06-btrfs-subvolumenes\|Subvolúmenes BTRFS]] | Creación de `@`, `@home` y `@snapshots`    |
+| 07  | [[arch-install-07-montaje\|Montaje]]                       | Montaje del esquema de particiones         |
+| 08  | [[arch-install-08-pacstrap\|Sistema base]]                 | `pacstrap`, repositorios y paquetes        |
+| 09  | [[arch-install-09-post-install\|Post-instalación]]         | `fstab`, `arch-chroot`, localización y red |
+| 10  | [[arch-install-10-mkinitcpio-gpu\|mkinitcpio y GPU]]       | Configuración según el hardware            |
+| 11  | [[arch-install-11-usuario-sudo\|Usuario y sudo]]           | Usuario, grupos y permisos                 |
+| 12  | [[arch-install-12-refind\|rEFInd]]                         | Instalación y configuración del bootloader |
+| 13  | [[arch-install-13-hyprland\|Hyprland]]                     | Instalación del entorno gráfico            |
+| 14  | [[arch-install-14-reboot\|Reinicio]]                       | Salida, desmontaje y primer arranque       |
 
 ## Ruta recomendada
 
