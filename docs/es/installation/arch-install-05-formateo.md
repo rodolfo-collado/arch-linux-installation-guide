@@ -19,9 +19,12 @@ nvme0n1     259:0    0  426G  0 disk
 
 > Salida de ejemplo de un disco NVMe de 426 GB particionado con una `EFI` de 2 GB y una `Root` de 424 GB. Las entradas `loop0` y `sr0` pertenecen a la Live ISO y pueden ignorarse.
 
+> [!WARNING]
+> **Nombres de las particiones:** Esta guía utiliza `/dev/nvme0n1p1` como partición `EFI` y `/dev/nvme0n1p2` como partición `Root`. Estos nombres son solo una referencia y pueden variar según tu dispositivo. Verifica los nombres reales con `lsblk` antes de ejecutar los comandos.
+
 ### 5.1. Partición EFI
 
-- Formatea la partición EFI como `FAT32` y asígnale la etiqueta `EFI_ARCH`. Sustituye `nvme0n1p1` por el nombre de tu partición `EFI`:
+- Formatea la partición EFI como `FAT32` y asígnale la etiqueta `EFI_ARCH`:
 
 ```bash
 mkfs.fat -F 32 -n EFI_ARCH /dev/nvme0n1p1
@@ -29,7 +32,7 @@ mkfs.fat -F 32 -n EFI_ARCH /dev/nvme0n1p1
 
 ### 5.2. Partición Root
 
-- Formatea la partición Root como `BTRFS` y asígnale la etiqueta `Arch_Linux`. Sustituye `nvme0n1p2` por el nombre de tu partición `Root`:
+- Formatea la partición Root como `BTRFS` y asígnale la etiqueta `Arch_Linux`:
 
 ```bash
 mkfs.btrfs -L Arch_Linux /dev/nvme0n1p2
