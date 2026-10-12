@@ -56,6 +56,6 @@ cfdisk /dev/nvme0n1
 
 <div align="center">
 
-[← Anterior](arch-install-03-internet.md) · [Índice](README.md) · [Siguiente →](arch-install-05-formateo.md)
+[← Anterior](arch-install-03-internet.md) · [Índice](../../../README.md) · [Siguiente →](arch-install-05-formateo.md)
 
 </div>
