@@ -4,7 +4,7 @@ La TTY (Teletypewritter) es la terminal con la que interactúas con el sistema o
 
 ### 2.1 Cambiar  la distribución de teclado
 
-- Listar las distribuciones de teclados disponibles con el comando `localectl`.
+- Listar las distribuciones de teclados disponibles con el comando `localectl`:
 
 ```bash
 localectl list-keymaps
@@ -18,7 +18,7 @@ Distribuciones más comunes:
 >- `us`: Inglés Estados Unidos.
 >- `us-acentos`: Inglés Internacional (con Dead Keys al presionar la tecla `'`).
 
-- Cargar una distribución de teclado en la terminal.
+- Cargar una distribución de teclado en la terminal:
 
 ```bash
 loadkeys us-acentos
@@ -26,7 +26,7 @@ loadkeys us-acentos
 
 ###  2.2 Cambiar tamaño de letra
 
-- Lista los tamaños de fuente disponibles.
+- Lista los tamaños de fuente disponibles:
 
 ```bash
 ls /usr/share/kbd/consolefonts/ | grep ter-v
@@ -40,7 +40,7 @@ ls /usr/share/kbd/consolefonts/ | grep ter-v
 > - **n (normal):** Fuente estándar.
 > - **b (bold):** Fuente en negrita (más gruesa).
 
-- Aplica el tamaño de fuente de tu preferencia con `setfont`.
+- Aplica el tamaño de fuente de tu preferencia con `setfont`:
 
 ```bash
 setfont ter-v22b
@@ -48,7 +48,7 @@ setfont ter-v22b
 
 ### 2.3 Verificar el modo de arranque de tu máquina (LEGACY o UEFI)
 
-- Verificar la existencia de las `efivars`.
+- Verificar la existencia de las `efivars`:
 
 ```bash
 ls /sys/firmware/efi/efivars
