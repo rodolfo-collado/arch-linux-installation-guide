@@ -1,4 +1,4 @@
-## 11. Creación del Usuario del Sistema (Con Permisos `sudo`):
+## 11. Creación del usuario del sistema con permisos de `sudo`
 
 - Edita el archivo `visudo` para habilitar los permisos `sudo` de los usuarios del sistema:
 
@@ -6,7 +6,7 @@
 EDITOR=nano visudo
 ```
 
-- Busca y descomenta (después guarda y sal del editor): 
+- Busca y descomenta. Después, guarda los cambios y sal del editor:
 
 ```bash
 %wheel ALL=(ALL:ALL) ALL
@@ -54,7 +54,7 @@ passwd rudolf
 > | `wheel,video,render,storage,input` | Grupos a los que se añadirá el usuario. Conserva únicamente los que necesites. |
 > | `rudolf` | Usuario que se modificará. Sustitúyelo por el nombre real del usuario. |
 
-### 11.1. Crear las carpetas estándar (Downloads, Documents, etc) del usuario y habilitar el daemon de red
+### 11.1. Crear las carpetas estándar (Descargas, Documentos, etc.) del usuario y habilitar el servicio de red
 
 - Instala el paquete de `xdg-user-dirs`:
 
@@ -74,7 +74,7 @@ su - rudolf
 xdg-user-dirs-update
 ```
 
-- Comprobar que las carpetas hayan sido creadas correctamente: 
+- Comprueba que las carpetas se hayan creado correctamente:
 
 ```bash
 ls

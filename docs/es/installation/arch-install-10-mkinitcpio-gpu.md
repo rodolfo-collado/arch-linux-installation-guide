@@ -18,7 +18,7 @@ __GLX_VENDOR_LIBRARY_NAME=nvidia
 WLR_NO_HARDWARE_CURSORS=1
 ```
 
--  Activa el *modesetting* del módulo `nvidia_drm`:
+- Activa el *modesetting* del módulo `nvidia_drm`:
 
 ```bash
 echo "options nvidia-drm modeset=1" > /etc/modprobe.d/nvidia.conf
@@ -59,7 +59,7 @@ mkinitcpio -P
 ```
 
 > [!NOTE]
-> La bandera `-P` ( es la opción corta de `--allpresets`) procesa todos los presets disponibles en `/etc/mkinitcpio.d/` y genera las imágenes `initramfs` correspondientes a los kernels instalados.
+> La opción `-P` es la forma corta de `--allpresets`. Procesa todos los presets disponibles en `/etc/mkinitcpio.d/` y genera las imágenes `initramfs` correspondientes a los kernels instalados.
 
 ### 10.2. Configuración para gráficas AMD/Intel
 

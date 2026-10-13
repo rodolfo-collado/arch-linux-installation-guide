@@ -1,8 +1,8 @@
-## 7. Montar esquema de particiones (BTRFS)
+## 7. Montaje del esquema de particiones (btrfs)
 
 ### 7.1. Montaje de subvolúmenes y partición EFI
 
-- Montar la raíz `@` en la ruta `/mnt`:
+- Monta la raíz `@` en la ruta `/mnt`:
 
 ```bash
 mount -o subvol=@,compress=zstd,noatime /dev/nvme0n1p2 /mnt
@@ -20,13 +20,13 @@ mkdir -p /mnt/{home,boot,.snapshots}
 mount -o subvol=@home,compress=zstd,noatime /dev/nvme0n1p2 /mnt/home
 ```
 
-- Montar subvolumen `@snapshots` en la ruta `/mnt/.snapshots`:
+- Monta el subvolumen `@snapshots` en la ruta `/mnt/.snapshots`:
 
 ```bash
 mount -o subvol=@snapshots,compress=zstd,noatime /dev/nvme0n1p2 /mnt/.snapshots
 ```
 
-- Montar `EFI` en la ruta `/mnt/boot`:
+- Monta la partición `EFI` en la ruta `/mnt/boot`:
 
 ```bash
 mount /dev/nvme0n1p1 /mnt/boot/
@@ -66,7 +66,7 @@ findmnt -nt btrfs
 
 ### 7.2. Esquemas de montaje más comunes
 
-El kernel se instala normalmente en `/boot`. La ubicación (o punto de montaje) de la partición EFI determina si comparte ese directorio con el kernel o si se monta por separado.
+El kernel se instala normalmente en `/boot`. El punto de montaje de la partición EFI determina si comparte ese directorio con el kernel o si se monta por separado.
 
 | Esquema | Montaje de la EFI | Ubicación del kernel | Ubicación del bootloader |
 | --- | --- | --- | --- |

@@ -1,6 +1,6 @@
 ## 6. Crear subvolúmenes (@, @home, @snapshots)
 
-Un subvolumen BTRFS es un árbol de directorios independiente dentro del mismo sistema de archivos. Puede montarse y gestionarse por separado sin crear una partición física adicional. En esta instalación crearemos 3 subvolúmenes principales:
+Un subvolumen btrfs es un árbol de directorios independiente dentro del mismo sistema de archivos. Puede montarse y gestionarse por separado sin crear una partición física adicional. En esta instalación crearemos 3 subvolúmenes principales:
 
 1. `@`: Contiene los archivos del sistema y los paquetes instalados.
 2. `@home`: Contiene los archivos y las configuraciones de los usuarios.

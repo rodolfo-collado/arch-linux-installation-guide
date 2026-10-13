@@ -1,4 +1,4 @@
-## 4. Verificar la ruta de instalación y crear la tabla de particiones
+## 4. Verificar el disco de instalación y crear la tabla de particiones
 
 - Lista los discos disponibles e identifica dónde instalarás Arch:
 
@@ -27,17 +27,18 @@ cfdisk /dev/nvme0n1
 | `[Write]`  | Guarda los cambios en el disco.                                    | Confirma escribiendo `yes`; puede borrar datos existentes.                                       |
 | `[Quit]`   | Sale de `cfdisk` sin guardar cambios pendientes.                   | Usar después de `[Write]`.                                                                       |
 
-### 4.1. Particiones necesarias para Arch Linux con BTRFS
+### 4.1. Particiones necesarias para Arch Linux con btrfs
 
 | Partición | Tipo en `cfdisk` | Formato | Tamaño orientativo | Uso |
 |---|---|---|---|---|
 | EFI | `EFI System` | `FAT32`/`vfat` | 512 MiB o más | Archivos de arranque. |
-| Root | `Linux root (x86-64)` | `BTRFS` | 25–40 GB para pruebas; más de 80 GB para uso diario | Sistema operativo, usuarios y datos. |
+| Root | `Linux root (x86-64)` | `btrfs` | 25–40 GB para pruebas; más de 80 GB para uso diario | Sistema operativo, usuarios y datos. |
 
 > [!CAUTION]
 > Puedes reutilizar la partición EFI de Windows, pero compartirla aumenta el riesgo de que una actualización o reparación de Windows modifique sus archivos de arranque. *Esto podría afectar el arranque de Arch y dejar inaccesibles archivos como el kernel o el cargador de arranque*. Haz una copia de seguridad antes de compartirla y, si es posible, utiliza una partición EFI independiente.
 
 - Es recomendable utilizar una partición `EFI` diferente para cada sistema operativo que instales a futuro.
+
 ### 4.2. ¿Es necesaria una partición Swap?
 
 | Situación                                                    | Recomendación                                                           |

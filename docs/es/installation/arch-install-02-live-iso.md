@@ -1,22 +1,22 @@
-## 2. Primer Booteo
+## 2. Primer arranque
 
-La TTY (Teletypewritter) es la terminal con la que interactúas con el sistema operativo mediante comandos. Por defecto viene con la distribución de teclado `us` (US QWERTY) y un tamaño de fuente demasiado pequeño si tu monitor es muy grande o de alta resolución.
+La TTY es una terminal con la que interactúas con el sistema mediante comandos. Por defecto utiliza la distribución de teclado `us` (US QWERTY) y un tamaño de fuente que puede resultar demasiado pequeño en monitores grandes o de alta resolución.
 
-### 2.1 Cambiar  la distribución de teclado
+### 2.1. Cambiar la distribución de teclado
 
-- Listar las distribuciones de teclados disponibles con el comando `localectl`:
+- Lista las distribuciones de teclado disponibles con el comando `localectl`:
 
 ```bash
 localectl list-keymaps
 ```
 
->[!NOTE]
-Distribuciones más comunes:
+> [!NOTE]
+> **Distribuciones más comunes:**
 >
->- `es`: Español España (ISO).
->- `la-latin1`: Español Latinoamericano.
->- `us`: Inglés Estados Unidos.
->- `us-acentos`: Inglés Internacional (con Dead Keys al presionar la tecla `'`).
+> - `es`: Español de España (ISO).
+> - `la-latin1`: Español latinoamericano.
+> - `us`: Inglés de Estados Unidos.
+> - `us-acentos`: Inglés internacional, con teclas muertas al presionar la tecla `'`.
 
 - Cargar una distribución de teclado en la terminal:
 
@@ -24,7 +24,7 @@ Distribuciones más comunes:
 loadkeys us-acentos
 ```
 
-###  2.2 Cambiar tamaño de letra
+### 2.2. Cambiar el tamaño de letra
 
 - Lista los tamaños de fuente disponibles:
 
@@ -35,10 +35,10 @@ ls /usr/share/kbd/consolefonts/ | grep ter-v
 > [!NOTE]
 > **Nomenclatura de los tamaños de letra:**
 >
->Siguen esta lógica: **`ter-v[tamaño][estilo]`**
-> - **v16, v24, v32:** Es la altura en píxeles.
-> - **n (normal):** Fuente estándar.
-> - **b (bold):** Fuente en negrita (más gruesa).
+> Siguen esta lógica: **`ter-v[tamaño][estilo]`**
+> - **v16, v24, v32:** es la altura en píxeles.
+> - **n (normal):** fuente estándar.
+> - **b (bold):** fuente en negrita (más gruesa).
 
 - Aplica el tamaño de fuente de tu preferencia con `setfont`:
 

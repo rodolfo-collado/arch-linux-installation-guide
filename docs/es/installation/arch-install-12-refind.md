@@ -19,7 +19,7 @@ Como requisito, es necesario haber instalado el paquete `refind` en el proceso d
 ---
 ### 12.2. Configuración de Parámetros de Arranque con el PARTUUID en el archivo `refind-linux.conf`:
 
-Existen dos identificadores usados para etiquetar particiones de la unidad de almacenamiento. `UUID` y `PARTUUID`. A nosotros nos interesa el `PARTUUID` de la partición `BTRFS` en donde alojamos todo el sistema principal con el objetivo de decirle a `rEFInd` qué partición tiene que buscar para ejecutar el sistema operativo y en dónde está el kernel (en el caso de nosotros tenemos el kernel en la partición btrfs principal). Para ello: 
+Existen dos identificadores usados para etiquetar particiones de la unidad de almacenamiento. `UUID` y `PARTUUID`. A nosotros nos interesa el `PARTUUID` de la partición `btrfs` en donde alojamos todo el sistema principal con el objetivo de decirle a `rEFInd` qué partición tiene que buscar para ejecutar el sistema operativo y en dónde está el kernel (en el caso de nosotros tenemos el kernel en la partición btrfs principal). Para ello:
 
 Obtener PARTUUID correcto:
 
@@ -41,7 +41,7 @@ nano /boot/refind_linux.conf
 
 Muchas veces viene con pocas opciones y un UUID/PARTUUID que en ciertos casos no coincide con el que tiene la partición del sistema principal.
 
-Cambia la línea que dice `"Boot using default options"` y añade el `PARTUUID` que obtuviste del comando `lsblk` de manera manual. Además, especifica que el sistema de archivos es `BTRFS` y el `rootflags=subvol=@` para que refind sepa específicamente que subvolumen tiene que arrancar como root.
+Cambia la línea que dice `"Boot using default options"` y añade el `PARTUUID` que obtuviste del comando `lsblk` de manera manual. Además, especifica que el sistema de archivos es `btrfs` y el `rootflags=subvol=@` para que refind sepa específicamente que subvolumen tiene que arrancar como root.
 
  **Contenido esperado:**
 
@@ -54,7 +54,7 @@ Cambia la línea que dice `"Boot using default options"` y añade el `PARTUUID` 
 
 > [!TIP]
 > **UUID vs. PARTUUID: Diferencias clave**
-> 1. **UUID (Universally Unique Identifier):** Está vinculado al sistema de archivos (Btrfs, Ext4, etc.). Se genera al formatear una partición y cambiará si vuelves a formatearla, aunque el disco físico sea el mismo. Es el estándar recomendado para el archivo /etc/fstab.
+> 1. **UUID (Universally Unique Identifier):** Está vinculado al sistema de archivos (btrfs, Ext4, etc.). Se genera al formatear una partición y cambiará si vuelves a formatearla, aunque el disco físico sea el mismo. Es el estándar recomendado para el archivo /etc/fstab.
 > 
 > 2. **PARTUUID (Partition UUID):** Está vinculado a la tabla de particiones (GPT) del disco duro. Se genera al crear la partición y no cambia aunque la formatees con un sistema de archivos distinto. Es el identificador que utiliza el bootloader para encontrar la partición raíz antes de montar el sistema.
 > 

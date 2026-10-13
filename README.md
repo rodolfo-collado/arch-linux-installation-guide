@@ -10,7 +10,7 @@
 
 ### · overview ·
 
-Guía base para instalar Arch Linux sobre BTRFS, configurar el sistema y dejar listo un entorno Hyprland.
+Guía base para instalar Arch Linux sobre btrfs, configurar el sistema y dejar listo un entorno Hyprland.
 
 </div>
 
@@ -24,9 +24,9 @@ Guía base para instalar Arch Linux sobre BTRFS, configurar el sistema y dejar l
 | 01  | [Preparativos](docs/es/installation/arch-install-01-overview.md)                 | Requisitos y recomendaciones iniciales     |
 | 02  | [Primer Booteo](docs/es/installation/arch-install-02-live-iso.md)                | Arranque desde la Live ISO                 |
 | 03  | [Conexión a Internet](docs/es/installation/arch-install-03-internet.md)          | Wireless, Ethernet, NAT y hora             |
-| 04  | [Particionado](docs/es/installation/arch-install-04-particionado.md)             | Tabla de particiones para BTRFS            |
+| 04  | [Particionado](docs/es/installation/arch-install-04-particionado.md)             | Tabla de particiones para btrfs            |
 | 05  | [Formateo](docs/es/installation/arch-install-05-formateo.md)                     | Formateo de EFI y raíz                     |
-| 06  | [Subvolúmenes BTRFS](docs/es/installation/arch-install-06-btrfs-subvolumenes.md) | Creación de `@`, `@home` y `@snapshots`    |
+| 06  | [Subvolúmenes btrfs](docs/es/installation/arch-install-06-btrfs-subvolumenes.md) | Creación de `@`, `@home` y `@snapshots`    |
 | 07  | [Montaje](docs/es/installation/arch-install-07-montaje.md)                       | Montaje del esquema de particiones         |
 | 08  | [Sistema base](docs/es/installation/arch-install-08-pacstrap.md)                 | `pacstrap`, repositorios y paquetes        |
 | 09  | [Post-instalación](docs/es/installation/arch-install-09-post-install.md)         | `fstab`, `arch-chroot`, localización y red |
@@ -41,7 +41,7 @@ Guía base para instalar Arch Linux sobre BTRFS, configurar el sistema y dejar l
 ```text
 Preparativos → Live ISO → Internet → Particionado → Formateo
       ↓
-Subvolúmenes BTRFS → Montaje → Pacstrap → Post-instalación
+Subvolúmenes btrfs → Montaje → Pacstrap → Post-instalación
       ↓
 mkinitcpio/GPU → Usuario/sudo → rEFInd → Hyprland → Reinicio
 ```

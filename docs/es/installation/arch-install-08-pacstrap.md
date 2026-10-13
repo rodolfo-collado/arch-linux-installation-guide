@@ -25,7 +25,7 @@ Include = /etc/pacman.d/mirrorlist
 
 ```bash
 Color
-ILoveCandy #si no está, lo escribes abajo de Color
+ILoveCandy # si no está, escríbelo debajo de Color
 CheckSpace
 ParallelDownloads = 5
 ```
@@ -57,7 +57,7 @@ pacman -Sy
 | Gráficos Intel              | `mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers`                |
 | Gráficos AMD                | `mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver`                                   |
 | Gráficos NVIDIA RTX         | `nvidia-dkms nvidia-utils nvidia-settings libva-nvidia-driver egl-wayland`                                                      |
-| Sistema de archivos (BTRFS) | `btrfs-progs`                                                                                                                   |
+| Sistema de archivos (btrfs) | `btrfs-progs`                                                                                                                   |
 | Audio                       | `pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf` |
 | Terminal                    | `kitty`                                                                                                                         |
 | Bluetooth y Wi-Fi           | `bluez bluez-utils networkmanager network-manager-applet`                                                                       |
@@ -98,8 +98,9 @@ pacstrap -K /mnt \
   yazi \
   firefox \
   strawberry \
-  obsidian
+obsidian
 ```
+
 ##### b) ThinkPad T14 Gen 2 (Intel) con Steam y controladores para mandos
 
 ```bash
@@ -141,7 +142,7 @@ pacstrap -K /mnt \
   obsidian
 ```
 
-##### d) PC con Ryzen y Nvidia RTX con Steam y controladores para mandos
+##### d) PC con Ryzen y NVIDIA RTX con Steam y controladores para mandos
 
 ```bash
 pacstrap -K /mnt \

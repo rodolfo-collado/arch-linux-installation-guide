@@ -8,7 +8,7 @@
 genfstab -U /mnt > /mnt/etc/fstab
 ```
 
->La opción `-U` utiliza los identificadores universalmente únicos (UUID, por sus siglas en Inglés) de las particiones en lugar de sus nombres de dispositivo.
+> La opción `-U` utiliza los identificadores universalmente únicos (UUID, por sus siglas en Inglés) de las particiones en lugar de sus nombres de dispositivo.
 
 - Después, cambia la raíz de trabajo a la del sistema instalado:
 
@@ -17,7 +17,7 @@ arch-chroot /mnt
 ```
 
 > [!CAUTION]
->Desde este momento, los comandos se ejecutan dentro del sistema instalado.
+> Desde este momento, los comandos se ejecutan dentro del sistema instalado.
 
 ### 9.2. Configurar la zona horaria
 
@@ -59,12 +59,12 @@ readlink -f /etc/localtime
 *Salida esperada* → `/usr/share/zoneinfo/America/Managua`
 
 > [!TIP]
->**Deshacer enlace simbólico**
->- Usa el comando `unlink` para deshacer el enlace simbólico que apunta a la zona horaria que deseas cambiar:
+> **Deshacer un enlace simbólico:**
+> Usa el comando `unlink` para eliminar el enlace simbólico antes de configurar otra zona horaria:
 >
->```bash
->unlink /etc/localtime
->```
+> ```bash
+> unlink /etc/localtime
+> ```
 
 - Sincroniza el reloj físico de la `BIOS` con la hora del sistema anteriormente configurada:
 

@@ -2,7 +2,7 @@
 
 ### 3.1. Conexión inalámbrica (Wi-Fi)
 
-- Ejecuta el comando `iwctl` (iNet Wireless Control):
+- Ejecuta el cliente interactivo de iwd, `iwctl`:
 
 ```bash
 iwctl
@@ -86,7 +86,7 @@ networkctl status <INTERFAZ>
 ping -c 3 ping.archlinux.org
 ```
 
-### 3.3. Conexión en máquina Virtual con NAT (Network Address Translation)
+### 3.3. Conexión en máquina virtual con NAT (Network Address Translation)
 
 - Lista las interfaces de red disponibles dentro de la VM:
 
