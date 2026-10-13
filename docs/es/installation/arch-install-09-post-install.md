@@ -47,6 +47,7 @@ ln -sf /usr/share/zoneinfo/America/Managua /etc/localtime
 
 > [!NOTE]
 > **¿Qué es un enlace simbólico?**
+> 
 > Es un archivo que apunta a otro archivo o directorio. En este caso, `/etc/localtime` apunta a la zona horaria elegida dentro de `/usr/share/zoneinfo/`, permitiendo que el sistema utilice esa configuración sin duplicar el archivo original.
 
 - Para verificar que el enlace simbólico apunta a la zona horaria escogida, usa el comando `readlink -f`:
