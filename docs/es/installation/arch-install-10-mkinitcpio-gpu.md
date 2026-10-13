@@ -1,4 +1,4 @@
-## 10. Configuración del mkinitcpio según hardware
+## 10. Configuración de la GPU y `mkinitcpio`
 
 ### 10.1. Configuración para gráficas NVIDIA
 
