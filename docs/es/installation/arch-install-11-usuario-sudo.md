@@ -1,79 +1,99 @@
 ## 11. Creación del Usuario del Sistema (Con Permisos `sudo`):
 
-Primero, entrar al archivo visudo para habilitar permisos sudo:
+- Edita el archivo `visudo` para habilitar los permisos `sudo` de los usuarios del sistema:
 
 ```bash
 EDITOR=nano visudo
 ```
 
-Descomentar: 
+- Busca y descomenta (después guarda y sal del editor): 
 
 ```bash
 %wheel ALL=(ALL:ALL) ALL
 ```
 
-Luego, crea el usuario desde la terminal y mételo al grupo wheel (grupo de los que pueden usar `sudo`): 
+- Crea el usuario y asígnale los grupos suplementarios necesarios. Sustituye `rudolf` por el nombre de usuario que prefieras:
 
 ```bash
-useradd -m -G wheel,video,render,storage,input rc # El 'rc' es el nombre de ejemplo, cambiar al gusto
+useradd -m -s /bin/bash -G wheel,video,render,storage,input rudolf
 ```
 
-> [!NOTE]
-> **Explicación de grupos y Banderas**
-> Al crear el usuario, le asignamos "poderes" específicos sobre el hardware:
-> 
-> * **`-m`**: Crea la carpeta personal `/home/rc`.
-> * **`-s /bin/bash`**: Define Bash como tu terminal interactiva por defecto.
-> * **`wheel`**: Permite usar `sudo` para tareas administrativas.
-> * **`video` & `render`**: Necesarios para el control de brillo y aceleración de la GPU.
-> * **`storage`**: Permite montar discos y USBs sin pedir contraseña constantemente.
-> * **`input`**: Mejora la respuesta de teclados y gestos en el touchpad de la laptop.
-> *  **`-s /bin/bash`**: Define la "Shell" (intérprete de comandos) por defecto. Sin esto, el sistema podría asignarte `/bin/sh`, que es una terminal muy limitada, sin colores, sin autocompletado con tabulador y sin soporte para tus alias de `~/.bashrc`. Especificarlo asegura que al abrir tu terminal en Hyprland, tengas todo el poder de Bash disponible.
+| Elemento           | Función                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| `-m`               | Crea la carpeta personal del usuario, por ejemplo `/home/rudolf`.                  |
+| `-s /bin/bash`     | Define Bash como la shell interactiva predeterminada.                              |
+| `wheel`            | Permite utilizar `sudo` para realizar tareas administrativas.                      |
+| `video` y `render` | Permiten acceder a funciones relacionadas con la GPU, como la aceleración gráfica. |
+| `storage`          | Facilita el acceso a dispositivos de almacenamiento, como discos y memorias USB.   |
+| `input`            | Permite acceder a dispositivos de entrada, como el teclado y el touchpad.          |
 
-Setear contraseña de ese usuario: 
+> [!TIP]
+> Puedes crear más usuarios en el sistema. Si al momento de crearlos no los asignas al grupo `wheel`, no tendrán la posibilidad de ejecutar comandos que requieran un nivel de permisos más alto (con `sudo`). 
+
+- Establecer la contraseña del usuario creado: 
 
 ```bash
-passwd rc
+passwd rudolf
 ```
 
 > [!IMPORTANT]
-> **Añadir un user ya creado a diferentes grupos**
-> Este comando debe ejecutarse dentro de un usuario:
+> **Añadir un usuario existente a grupos adicionales**
+> Si olvidaste añadir algún grupo al crear el usuario, ejecuta este comando dentro de `arch-chroot`, donde ya tienes permisos de `root`:
+> 
 > ```bash
-> sudo usermod -aG video,render,storage,input rc
+> usermod -aG wheel,video,render,storage,input rudolf
 > ```
 > 
-> ### Explicación de la banderas `-aG`:
-> - **`-a` (append):** Esta es la más importante. Significa "añadir". Si se te olvida la `-a`, el sistema **borrará** al usuario de todos sus grupos actuales (como `wheel`) y lo dejará solo en el nuevo.
-> - **`-G` (groups):** Indica que lo que sigue es una lista de grupos suplementarios.
+> **Partes del comando:**
+> 
+> | Elemento | Función |
+> | --- | --- |
+> | `usermod` | Modifica la configuración de un usuario existente. |
+> | `-a` | Añade los grupos nuevos y conserva los grupos suplementarios actuales. Debe utilizarse junto con `-G`. |
+> | `-G` | Indica la lista de grupos suplementarios que se asignará al usuario. |
+> | `wheel,video,render,storage,input` | Grupos a los que se añadirá el usuario. Conserva únicamente los que necesites. |
+> | `rudolf` | Usuario que se modificará. Sustitúyelo por el nombre real del usuario. |
 
-### 11.1. Crear las carpetas estándar (Downloads, Documents, etc) del usuario y habilitar red
+### 11.1. Crear las carpetas estándar (Downloads, Documents, etc) del usuario y habilitar el daemon de red
 
-Para ello, ejecuta: 
+- Instala el paquete de `xdg-user-dirs`:
 
 ```bash
 pacman -S xdg-user-dirs
 ```
 
-Luego de la instalación, entra al usuario creado:
+- Entra al usuario creado, cambia `rudolf` por el nombre real de tu usuario:
 
 ```bash
-su - rc
+su - rudolf
 ```
 
-Ejecuta este comando: 
+- Una vez dentro, actualiza los directorios del usuario con este comando: 
 
 ```bash
 xdg-user-dirs-update
 ```
 
-Tras crear las carpetas, salir del usuario para continuar con la configuración: 
+- Comprobar que las carpetas hayan sido creadas correctamente: 
+
+```bash
+ls
+```
+
+*Salida esperada* ↓
+
+```bash
+Descargas   Escritorio  Música      Proyectos  Vídeos
+Documentos  Imágenes    Plantillas  Público
+```
+
+- Tras crear las carpetas, sal del usuario: 
 
 ```bash
 exit 
 ```
 
-Para habilitar la red wireless, ejecuta este comando: 
+- Por último, habilita el daemon `NetworkManager` para la red:  
 
 ```bash
 systemctl enable NetworkManager
