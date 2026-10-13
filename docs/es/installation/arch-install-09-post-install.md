@@ -112,7 +112,7 @@ echo "LANG=es_NI.UTF-8" > /etc/locale.conf
 
 ### 9.4. Configurar el teclado y la fuente de la consola
 
-- Define la distribución del teclado y una fuente más grande para la consola. Sustituye `us-acentos` y `ter-132b` si prefieres otros valores:
+- Define la distribución del teclado y una fuente más grande para la consola. Sustituye `us-acentos` y `ter-122b` si prefieres otros valores:
 
 ```bash
 echo -e "KEYMAP=us-acentos\nFONT=ter-122b" > /etc/vconsole.conf
