@@ -36,7 +36,11 @@ ParallelDownloads = 5
 > - `ParallelDownloads`: permite descargar varios paquetes simultáneamente.
 > - `ILoveCandy`: añade una animación de Pac-Man a la barra de progreso.
 
-- Guarda el archivo con `CTRL + O`, confirma con `ENTER` y sal del editor con `CTRL + X`. Después, actualiza las bases de datos de los repositorios:
+> [!NOTE]
+> **Guardar y salir de `nano`:**
+> Presiona `CTRL + O` para guardar los cambios, confirma con `ENTER` y presiona `CTRL + X` para salir del editor.
+
+- Después, actualiza las bases de datos de los repositorios:
 
 ```bash
 pacman -Sy
