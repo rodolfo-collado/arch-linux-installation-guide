@@ -50,7 +50,7 @@ cfdisk /dev/nvme0n1
 
 - En una máquina virtual, el disco suele aparecer como `/dev/vda`. En hardware físico puede aparecer como `/dev/nvme0n1`, `/dev/sda` u otro nombre. Ejemplo:
 
-![Ejemplo de una tabla de particiones de una máquina virtual](arch-install-partitioning-screenshot-001.png)
+![Ejemplo de una tabla de particiones de una máquina virtual](/assets/arch-install-partitioning-screenshot-001.png)
 
 ---
 
