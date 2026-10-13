@@ -1,6 +1,6 @@
-## 7. Montar esquema de particiones (BTRFS):
+## 7. Montar esquema de particiones (BTRFS)
 
-### 7.1. Montaje de subvolúmenes y partición EFI:
+### 7.1. Montaje de subvolúmenes y partición EFI
 
 - Montar la raíz `@` en la ruta `/mnt`:
 
