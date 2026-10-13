@@ -1,25 +1,27 @@
-## 8. Instalación del Sistema Base:
+## 8. Instalación del Sistema Base
 
-### 8.1. Activación del repositorio `multilib`:
+### 8.1. Activar el repositorio `multilib`
 
-Para una instalación de paquetes completa mediante `pacstrap -K` primero se tiene que editar el  archivo en la ruta `/etc/pacman.conf`:
+- Para instalar paquetes de 32 bits, activa el repositorio `multilib` editando `/etc/pacman.conf`:
 
 ```bash
 nano /etc/pacman.conf
 ```
 
-Dentro del archivo, se descomentan las líneas: 
+- Descomenta estas líneas eliminando el símbolo `#` al inicio:
 
 ```bash
 [multilib]
-Include = /etc/pacman.d/mirrorlist # descomentar es quitar el '#' del inicio
+Include = /etc/pacman.d/mirrorlist
 ```
 
-> [!IMPORTANT]
-> **Rol del repositorio `multilib` en el sistema:**
-> Esto activa el repositorio de `multilib`, crucial para dotar al sistema operativo de la capacidad de compilar y ejecutar aplicaciones de 32 bits. Por defecto, Arch es estrictamente un sistema operativo de 64 bits. Por lo que al activar `multilib` le descargas al sistema una capa de librerías secundarias que le permiten a tu procesador moderno traducir y ejecutar ese código antiguo de manera nativa y sin problemas.
+> Eliminar el símbolo `#` al inicio de una línea se conoce como **descomentar**.
 
-Luego, busca la siguientes líneas y descoméntalas en el mismo archivo:
+> [!IMPORTANT]
+> **Rol del repositorio `multilib`:**
+> `multilib` proporciona versiones de 32 bits de algunas bibliotecas y aplicaciones. Es necesario para ejecutar determinados programas, como juegos y aplicaciones antiguas.
+
+- Luego, busca estas líneas y descoméntalas en el mismo archivo:
 
 ```bash
 Color
@@ -29,62 +31,132 @@ ParallelDownloads = 5
 ```
 
 > [!NOTE]
-> **¿Qué hace cada cosa?**
->  - **`Color`**: Te da una mejor visibilidad para distinguir versiones y nombres de paquetes.
-> - **`ParallelDownloads`**: ¡Vital para tu fibra óptica! Descarga 5 paquetes al mismo tiempo en lugar de uno por uno.
-> - **`ILoveCandy`**: Convierte la barra de progreso aburrida en un Pac-Man animado.
+> **¿Qué hace cada opción?**
+> - `Color`: mejora la visibilidad de la salida de `pacman`.
+> - `ParallelDownloads`: permite descargar varios paquetes simultáneamente.
+> - `ILoveCandy`: añade una animación de Pac-Man a la barra de progreso.
 
-Guardar el archivo y ejecuta este comando en la terminal: 
-
-```bash
-pacman -Sy #Actualiza el gestor de paquetes para descargar Multilibs
-```
-
-### 8.2. Comando pacstrap -K e instalación completa del sistema:
-
-> [!IMPORTANT]
-> **Lo esencial que no puede faltar dentro del `pacstrap -K` es:**
-> - **Sistema base:** `base linux linux-headers linux-firmware` 
-> - **Drivers de procesadores:** `intel-ucode` / `amd-ucode` 
-> - **Gráficas Intel e integradas:** `mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers`
-> - **Gráficas AMD e integradas:** `mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver`  
-> - **Gráficas Nvidia RTX:** `nvidia-dkms nvidia-utils nvidia-settings libva-nvidia-driver egl-wayland` 
-> - **Sistema de archivos:** `btrfs-progs` 
-> - **Audio:** `pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf` 
-> - **Terminal:** `kitty`
-> - **Bluetooth y WIFI:** `bluez bluez-utils networkmanager network-manager-applet` 
-> - **Extras indispensables:** `git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark` 
-
-> [!TIP]
-> **Opcionales pero recomendados:**
-> - **Lectores de archivos:** `zathura zathura-pdf-mupdf imv mpv` 
-> - **Exploradores de archivos en terminal y ventana:** `yazi thunar` 
-> - **Navegador:** `firefox`
-> - **Reproductor:** `strawberry`
-> - **Notas:** `obsidian`
-> - **Gamemodes y extras de juegos:** `gamemode lib32-gamemode steam hidapi steam-devices`
-
-#### 8.2.1. Pacstrap personalizado  (Thinkpad T14 gen 2 intel) + programas/binarios del usuario:
+- Guarda el archivo con `CTRL + O`, confirma con `ENTER` y sal del editor con `CTRL + X`. Después, actualiza las bases de datos de los repositorios:
 
 ```bash
-pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers btrfs-progs pipewire pipewire-pulse pipewire-alsa pipewire-jack rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf kitty bluez bluez-utils networkmanager network-manager-applet git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark readest obsidian strawberry firefox gamemode lib32-gamemode steam hidapi steam-devices thunar yazi zathura zathura-pdf-mupdf imv mpv
+pacman -Sy
 ```
 
-```bash
-pacstrap -K /mnt base linux linux-headers linux-firmware intel-ucode mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers btrfs-progs pipewire pipewire-pulse pipewire-alsa pipewire-jack rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf kitty bluez bluez-utils networkmanager network-manager-applet git base-devel nvim nano terminus-font refind libva-utils tar zip unzip p7zip ark readest obsidian strawberry firefox yazi zathura zathura-pdf-mupdf imv mpv
-```
+### 8.2. Instalar el sistema base con `pacstrap -K`
+
+`pacstrap -K` instala los paquetes seleccionados dentro del sistema montado en `/mnt`. Utiliza esta tabla como referencia para construir el comando según tu hardware y tus necesidades:
+
+| Función                     | Paquetes necesarios                                                                                                             |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Sistema base                | `base linux linux-headers linux-firmware`                                                                                       |
+| Microcódigo del procesador  | `intel-ucode` o `amd-ucode`                                                                                                     |
+| Gráficos Intel              | `mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers`                |
+| Gráficos AMD                | `mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver`                                   |
+| Gráficos NVIDIA RTX         | `nvidia-dkms nvidia-utils nvidia-settings libva-nvidia-driver egl-wayland`                                                      |
+| Sistema de archivos (BTRFS) | `btrfs-progs`                                                                                                                   |
+| Audio                       | `pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf` |
+| Terminal                    | `kitty`                                                                                                                         |
+| Bluetooth y Wi-Fi           | `bluez bluez-utils networkmanager network-manager-applet`                                                                       |
+| Bootloader                  | `refind`                                                                                                                        |
+| Herramientas esenciales     | `git base-devel nvim nano terminus-font libva-utils tar zip unzip p7zip ark`                                                    |
+
+También puedes añadir estos paquetes opcionales:
+
+| Función                  | Paquetes opcionales                                  |
+| ------------------------ | ---------------------------------------------------- |
+| Multimedia y lectores    | `readest zathura zathura-pdf-mupdf imv mpv`           |
+| Exploradores de archivos | `yazi thunar`                                        |
+| Navegador web            | `firefox`                                            |
+| Reproductor de música    | `strawberry`                                         |
+| Notas                    | `obsidian`                                           |
+| Juegos y mandos          | `gamemode lib32-gamemode steam hidapi steam-devices` |
+
+#### 8.2.1. Ejemplos de comandos `pacstrap -K` personalizados
 
 > [!NOTE]
-> **¿Qué instala este comando?**
->- Sistema base y kernel.
-> - Drivers del procesador y gráfica Intel.
-> - Herramientas de administrador de discos en formato BTRFS.
-> - Drivers de audio
-> - Drivers bluetooth
-> - Drivers WIFI
-> - Herramientas esenciales del sistema (terminal, GIT, editores de texto en terminal, Boot Manager,  exploradores de archivos, programas para reproducción de audio, video y documentos por defecto)
-> - Steam y drivers necesarios para reconocer mandos. 
-> - Apps del usuario (Obsidian, firefox, Strawberry, readest, etc).
+> **Comandos en varias líneas:**
+> El carácter `\` al final de una línea indica que el comando continúa en la siguiente. Puedes copiar y pegar los ejemplos completos tal como aparecen o escribirlos en una sola línea eliminando las barras invertidas y los saltos de línea. No dejes ningún espacio después de `\`.
+
+##### a) ThinkPad T14 Gen 2 (Intel)
+
+```bash
+pacstrap -K /mnt \
+  base linux linux-headers linux-firmware \
+  intel-ucode \
+  mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers \
+  btrfs-progs \
+  pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf \
+  kitty \
+  bluez bluez-utils networkmanager network-manager-applet \
+  refind \
+  git base-devel nvim nano terminus-font libva-utils tar zip unzip p7zip ark \
+  readest zathura zathura-pdf-mupdf imv mpv \
+  yazi \
+  firefox \
+  strawberry \
+  obsidian
+```
+##### b) ThinkPad T14 Gen 2 (Intel) con Steam y controladores para mandos
+
+```bash
+pacstrap -K /mnt \
+  base linux linux-headers linux-firmware \
+  intel-ucode \
+  mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver vulkan-mesa-layers lib32-vulkan-mesa-layers \
+  btrfs-progs \
+  pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf \
+  kitty \
+  bluez bluez-utils networkmanager network-manager-applet \
+  refind \
+  git base-devel nvim nano terminus-font libva-utils tar zip unzip p7zip ark \
+  readest zathura zathura-pdf-mupdf imv mpv \
+  yazi thunar \
+  firefox \
+  strawberry \
+  obsidian \
+  gamemode lib32-gamemode steam hidapi steam-devices
+```
+
+##### c) PC con Ryzen y NVIDIA RTX
+
+```bash
+pacstrap -K /mnt \
+  base linux linux-headers linux-firmware \
+  amd-ucode \
+  nvidia-dkms nvidia-utils nvidia-settings libva-nvidia-driver egl-wayland \
+  btrfs-progs \
+  pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf \
+  kitty \
+  bluez bluez-utils networkmanager network-manager-applet \
+  refind \
+  git base-devel nvim nano terminus-font libva-utils tar zip unzip p7zip ark \
+  readest zathura zathura-pdf-mupdf imv mpv \
+  yazi thunar \
+  firefox \
+  strawberry \
+  obsidian
+```
+
+##### d) PC con Ryzen y Nvidia RTX con Steam y controladores para mandos
+
+```bash
+pacstrap -K /mnt \
+  base linux linux-headers linux-firmware \
+  amd-ucode \
+  nvidia-dkms nvidia-utils nvidia-settings libva-nvidia-driver egl-wayland \
+  btrfs-progs \
+  pipewire pipewire-pulse pipewire-alsa pipewire-jack lib32-pipewire rtkit wireplumber sof-firmware alsa-firmware alsa-ucm-conf \
+  kitty \
+  bluez bluez-utils networkmanager network-manager-applet \
+  refind \
+  git base-devel nvim nano terminus-font libva-utils tar zip unzip p7zip ark \
+  readest zathura zathura-pdf-mupdf imv mpv \
+  yazi thunar \
+  firefox \
+  strawberry \
+  obsidian \
+  gamemode lib32-gamemode steam hidapi steam-devices
+```
 
 ---
 
